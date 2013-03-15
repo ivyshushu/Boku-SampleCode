@@ -1,0 +1,25 @@
+package com.example.page;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
+
+public class DemoPage {
+	protected WebDriver driver;
+
+
+	private String url = "http://bokutester.tumblr.com/post/44018078567/demo";
+	private By dropdownMenu = By.id("cid_3");
+	
+	
+	DemoPage(WebDriver d){
+		this.driver = d;
+		this.wait = new WebDriverWait(this.driver, 10);
+		
+	}
+	
+
+
+
+}

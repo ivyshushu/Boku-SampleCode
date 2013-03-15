@@ -1,0 +1,42 @@
+package com.example.page;
+
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
+
+public class DemoPage extends Page {
+	private String url = "http://bokutester.tumblr.com/post/44018078567/demo";
+	private By dropdownMenu = By.id("cid_3");
+	private ArrayList<String> options;
+	
+	DemoPage(WebDriver d){
+		super(d);
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public boolean isDropdownMenuPresent(){
+		return this.isElementPresent(dropdownMenu);
+	}
+	
+	public ArrayList<String> clickDropdownMenu(){
+		this.driver.findElement(dropdownMenu);
+		
+	}
+	
+	public String selectProvider(){
+		String provider
+		return provider;
+	}
+	
+	
+	
+
+
+
+}

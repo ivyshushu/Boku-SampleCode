@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestDemoPage" project="Boku_Sample" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.example.test.TestDemoPage" time="13.029">
+    <testcase name="test" classname="com.example.test.TestDemoPage" time="13.029">
+      <error>org.openqa.selenium.TimeoutException: Timed out after 10 seconds waiting for com.example.page.Page$2@5afa8450
+Build info: version: '2.31.0', revision: '1bd294d', time: '2013-02-27 20:52:59'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.8.2', java.version: '1.7.0_07'
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:259)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.example.page.DemoPage.getToPage(DemoPage.java:30)
+	at com.example.test.TestDemoPage.test(TestDemoPage.java:20)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"name","selector":"q3_cellPhone3"}
+Command duration or timeout: 184 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.31.0', revision: '1bd294d', time: '2013-02-27 20:52:59'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.8.2', java.version: '1.7.0_07'
+Session ID: 7908fc46-4368-3a40-a41d-92e188cd417e
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{platform=MAC, databaseEnabled=true, cssSelectorsEnabled=true, javascriptEnabled=true, acceptSslCerts=true, handlesAlerts=true, browserName=firefox, browserConnectionEnabled=true, nativeEvents=false, webStorageEnabled=true, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=19.0.2}]
+	at sun.reflect.GeneratedConstructorAccessor9.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:525)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:187)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:145)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:554)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:307)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:380)
+	at org.openqa.selenium.By$ByName.findElement(By.java:292)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:299)
+	at com.example.page.Page$2.apply(Page.java:74)
+	at com.example.page.Page$2.apply(Page.java:1)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
+	... 26 more
+Caused by: org.openqa.selenium.remote.ErrorHandler$UnknownServerException: Unable to locate element: {"method":"name","selector":"q3_cellPhone3"}
+Build info: version: '2.31.0', revision: '1bd294d', time: '2013-02-27 20:52:59'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.8.2', java.version: '1.7.0_07'
+Driver info: driver.version: unknown
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElementInternal_(file:///var/folders/rg/s4g0g8gs44nbl6d_zkkcw49m0000gn/T/anonymous4264291573660943670webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:8281)
+	at &lt;anonymous class&gt;.FirefoxDriver.prototype.findElement(file:///var/folders/rg/s4g0g8gs44nbl6d_zkkcw49m0000gn/T/anonymous4264291573660943670webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:8290)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_/h(file:///var/folders/rg/s4g0g8gs44nbl6d_zkkcw49m0000gn/T/anonymous4264291573660943670webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10272)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.executeInternal_(file:///var/folders/rg/s4g0g8gs44nbl6d_zkkcw49m0000gn/T/anonymous4264291573660943670webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10277)
+	at &lt;anonymous class&gt;.DelayedCommand.prototype.execute/&lt;(file:///var/folders/rg/s4g0g8gs44nbl6d_zkkcw49m0000gn/T/anonymous4264291573660943670webdriver-profile/extensions/fxdriver@googlecode.com/components/command_processor.js:10217)
+
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

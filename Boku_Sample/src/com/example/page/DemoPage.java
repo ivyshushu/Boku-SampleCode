@@ -1,0 +1,81 @@
+package com.example.page;
+
+import java.util.List;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class DemoPage extends Page {
+	private String url = "http://bokutester.tumblr.com/post/44018078567/demo";
+	private By dropdownMenu = By.id("input_3");
+	private Select droplist;
+	private List<WebElement> options; 
+	private By errorMessage = By.className("form-error-message");
+	private By warningSign1 = By.xpath("//*[@id=\"cid_3\"]/div/img");
+	//private By warningSign2 = By.xpath("//*[@id=\"cid_5\"]/div/img");
+	//private By warningSign3 = By.xpath("//*[@id=\"cid_8\"]/div[2]/img");
+	private By formDescription1 = By.xpath("//*[@id=\"id_3\"]/div[2]/div[3]");
+	
+	public DemoPage(WebDriver d){
+		super(d);
+	}
+	
+    public void getToPage() {
+			this.driver.get(url);
+			this.driver.switchTo().frame("30705147322142");
+			this.getWait().until(this.visibilityOfElementLocated(By.name("q3_cellPhone3")));
+	}
+
+
+	public boolean isDropdownMenuPresent(){
+		return this.isElementPresent(dropdownMenu);
+	}
+	
+	public void clickDropdownMenu(){
+		this.driver.findElement(dropdownMenu).click();
+	}
+	
+	public List<WebElement> getDroplist(){
+		droplist = new Select(this.driver.findElement(dropdownMenu));
+		options = droplist.getOptions();
+		return options;
+	}
+	
+	public void selectProvider(String company){
+		for(WebElement option : options){
+			if(option.getText().equals(company)){
+				option.click();
+				break;
+			}
+				
+		}
+	}
+	
+	public boolean isWarningPresent(){
+		return this.isElementPresent(errorMessage)&&this.isElementVisible(warningSign1);
+	}
+	
+	public boolean isDescription1Present(){
+		return isElementPresent(formDescription1);
+	}
+	
+	public String getDescription1(){
+		return this.driver.findElement(formDescription1).getText();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+}
