@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun com.example.test.TestDemoPage.verifyMenuItems" project="Boku_Sample" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="verifyMenuItems" classname="com.example.test.TestDemoPage" time="1.482"/>
+</testrun>

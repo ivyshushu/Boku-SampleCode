@@ -12,9 +12,9 @@ import org.openqa.selenium.support.ui.Select;
 
 public class DemoPage extends Page {
 	private String url = "http://bokutester.tumblr.com/post/44018078567/demo";
-	private By dropdownList = By.id("input_3");
-	private By menuItems = By.cssSelector("select > option");
-	//private List<WebElement> optionList; 
+	private By dropdownMenu = By.id("input_3");
+	private Select droplist;
+	private List<WebElement> options; 
 	private By errorMessage = By.className("form-error-message");
 	private By warningSign1 = By.xpath("//*[@id=\"cid_3\"]/div/img");
 	//private By warningSign2 = By.xpath("//*[@id=\"cid_5\"]/div/img");
@@ -23,9 +23,8 @@ public class DemoPage extends Page {
 	
 	public DemoPage(WebDriver d){
 		super(d);
-		this.getToPage();
 	}
-
+	
     public void getToPage() {
 			this.driver.get(url);
 			this.driver.switchTo().frame("30705147322142");
@@ -34,36 +33,27 @@ public class DemoPage extends Page {
 
 
 	public boolean isDropdownMenuPresent(){
-		return this.isElementPresent(dropdownList);
+		return this.isElementPresent(dropdownMenu);
 	}
 	
 	public void clickDropdownMenu(){
-		this.driver.findElement(dropdownList).click();
+		this.driver.findElement(dropdownMenu).click();
 	}
 	
-	public boolean isMenuDisplayed(){
-		return this.isElementVisible(menuItems);
+	public List<WebElement> getDroplist(){
+		droplist = new Select(this.driver.findElement(dropdownMenu));
+		options = droplist.getOptions();
+		return options;
 	}
 	
-	public List<WebElement> getOptions(){
-		Select itemList = new Select(this.driver.findElement(dropdownList));
-		return itemList.getOptions();
-	}
-	
-	public void selectItem(String company){
-		List<WebElement> optionList = getOptions();
-		for(WebElement option : optionList){
+	public void selectProvider(String company){
+		for(WebElement option : options){
 			if(option.getText().equals(company)){
 				option.click();
 				break;
 			}
 				
 		}
-	}
-	
-	public String getCurrentSelection(){
-		Select itemList = new Select(this.driver.findElement(dropdownList));
-		return itemList.getFirstSelectedOption().getText();
 	}
 	
 	public boolean isWarningPresent(){

@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 public class TestDemoPage {
 	
 	TestSetup setup = new TestSetup();
-	String[] expectedMenuOptions = {"", "AT&T", "T-Mobile", "Verizon Wireless", "Sprint", "Virgin", "Boost Mobile"};
+	String[] expectedMenuOptions = {" ", "AT&T", "T-Mobile", "Verizon Wireless", "Sprint", "Virgin", "Boost Mobile"};
     String requiredFieldErrorMessage = "This field is required.";
     String submitErrorMessage = "There are incomplete required fields. Please complete them.";
     String dropdownMenuDescription = "Select the company that provides your cell phone service.";
@@ -42,20 +42,14 @@ public class TestDemoPage {
 	public void verifyMenuItems(){
 		DemoPage demo = new DemoPage(setup.getDriver());
 		List<WebElement> options = demo.getOptions();
-		for(WebElement opt : options){
+/*		for(WebElement opt : options){
 			String value = opt.getText();
 			assertEquals(true, Arrays.asList(expectedMenuOptions).contains(value));	
 			}
-
-		//assertEquals(true, Arrays.asList(expectedMenuOptions).contains(options.get(0).getText()));
+*/
+		assertEquals(true, Arrays.asList(expectedMenuOptions).contains(options.get(1).getText()));
 		}
 		
-	@Test
-	public void testSelectMenuItem(){
-		DemoPage demo = new DemoPage(setup.getDriver());
-		demo.selectItem("Verizon Wireless");
-		assertEquals("Verizon Wireless", demo.getCurrentSelection());
-	}
 	
 }
 

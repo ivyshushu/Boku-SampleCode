@@ -42,20 +42,14 @@ public class TestDemoPage {
 	public void verifyMenuItems(){
 		DemoPage demo = new DemoPage(setup.getDriver());
 		List<WebElement> options = demo.getOptions();
-		for(WebElement opt : options){
+/*		for(WebElement opt : options){
 			String value = opt.getText();
 			assertEquals(true, Arrays.asList(expectedMenuOptions).contains(value));	
 			}
-
-		//assertEquals(true, Arrays.asList(expectedMenuOptions).contains(options.get(0).getText()));
+*/
+		assertEquals(true, Arrays.asList(expectedMenuOptions).contains(options.get(0).getText()));
 		}
 		
-	@Test
-	public void testSelectMenuItem(){
-		DemoPage demo = new DemoPage(setup.getDriver());
-		demo.selectItem("Verizon Wireless");
-		assertEquals("Verizon Wireless", demo.getCurrentSelection());
-	}
 	
 }
 

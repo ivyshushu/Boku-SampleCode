@@ -13,8 +13,9 @@ import org.openqa.selenium.support.ui.Select;
 public class DemoPage extends Page {
 	private String url = "http://bokutester.tumblr.com/post/44018078567/demo";
 	private By dropdownList = By.id("input_3");
+	private Select droplist;
 	private By menuItems = By.cssSelector("select > option");
-	//private List<WebElement> optionList; 
+	private List<WebElement> optionList; 
 	private By errorMessage = By.className("form-error-message");
 	private By warningSign1 = By.xpath("//*[@id=\"cid_3\"]/div/img");
 	//private By warningSign2 = By.xpath("//*[@id=\"cid_5\"]/div/img");
@@ -46,13 +47,13 @@ public class DemoPage extends Page {
 	}
 	
 	public List<WebElement> getOptions(){
-		Select itemList = new Select(this.driver.findElement(dropdownList));
-		return itemList.getOptions();
+		droplist = new Select(this.driver.findElement(dropdownList));
+		options = droplist.getOptions();
+		return options;
 	}
 	
 	public void selectItem(String company){
-		List<WebElement> optionList = getOptions();
-		for(WebElement option : optionList){
+		for(WebElement option : options){
 			if(option.getText().equals(company)){
 				option.click();
 				break;
@@ -62,8 +63,7 @@ public class DemoPage extends Page {
 	}
 	
 	public String getCurrentSelection(){
-		Select itemList = new Select(this.driver.findElement(dropdownList));
-		return itemList.getFirstSelectedOption().getText();
+		
 	}
 	
 	public boolean isWarningPresent(){

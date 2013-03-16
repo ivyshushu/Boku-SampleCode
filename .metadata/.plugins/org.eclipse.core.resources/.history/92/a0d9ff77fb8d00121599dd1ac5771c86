@@ -1,0 +1,38 @@
+package com.example.test;
+
+import com.example.page.*; 
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+
+public class TestDemoPage {
+	
+	TestSetup setup = new TestSetup();
+	String[] expectedMenuOptions = {" ", "AT&T", "T-Mobile", "Verizon Wireless", "Sprint", "Virgin", "Boost Mobile"};
+    String requiredFieldErrorMessage = "This field is required.";
+    String submitErrorMessage = "There are incomplete required fields. Please complete them.";
+    String dropdownMenuDescription = "Select the company that provides your cell phone service.";
+    String textFieldDescription = "Enter your cell phone number.";
+    String numValidationErrorMessage = "This field can only contain numeric values";
+    
+	@After
+	public void tearDown() throws Exception {
+		this.setup.getDriver().quit();
+	}
+  
+/******	
+	@Test
+	public void test() {
+		DemoPage demo = new DemoPage(setup.getDriver());
+		demo.getToPage();
+	}
+*******/
+	
+	@Test
+	public void testIfClickDropdownMenuExists(){
+		DemoPage demo = new DemoPage(setup.getDriver());
+		assertEquals(true, demo.isDropdownMenuPresent());
+	}	
+
+}

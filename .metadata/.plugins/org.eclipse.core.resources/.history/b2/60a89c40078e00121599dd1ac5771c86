@@ -50,12 +50,6 @@ public class TestDemoPage {
 		//assertEquals(true, Arrays.asList(expectedMenuOptions).contains(options.get(0).getText()));
 		}
 		
-	@Test
-	public void testSelectMenuItem(){
-		DemoPage demo = new DemoPage(setup.getDriver());
-		demo.selectItem("Verizon Wireless");
-		assertEquals("Verizon Wireless", demo.getCurrentSelection());
-	}
 	
 }
 
