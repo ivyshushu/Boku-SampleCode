@@ -1,0 +1,91 @@
+package com.example.page;
+
+import java.util.List;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class DemoPage extends Page {
+	private String url = "http://bokutester.tumblr.com/post/44018078567/demo";
+	private By dropdownList = By.id("input_3");
+	private By menuItems = By.cssSelector("select > option");
+	private By errorMessage = By.className("form-error-message");
+	private By warningSign1 = By.xpath("//*[@id=\"cid_3\"]/div/img");
+	//private By warningSign2 = By.xpath("//*[@id=\"cid_5\"]/div/img");
+	//private By warningSign3 = By.xpath("//*[@id=\"cid_8\"]/div[2]/img");
+	private By formDescription1 = By.xpath("//*[@id=\"id_3\"]/div[2]/div[3]");
+	
+	public DemoPage(WebDriver d){
+		super(d);
+		this.getToPage();
+	}
+
+    public void getToPage() {
+			this.driver.get(url);
+			this.driver.switchTo().frame("30705147322142");
+			this.getWait().until(this.visibilityOfElementLocated(By.name("q3_cellPhone3")));
+	}
+
+
+	public boolean isDropdownMenuPresent(){
+		return this.isElementPresent(dropdownList);
+	}
+	
+	public void clickDropdownMenu(){
+		this.driver.findElement(dropdownList).click();
+	}
+	
+	public boolean isMenuDisplayed(){
+		return this.isElementVisible(menuItems);
+	}
+	
+	public List<WebElement> getOptions(){
+		Select itemList = new Select(this.driver.findElement(dropdownList));
+		return itemList.getOptions();
+	}
+	
+	public void selectItem(String company){
+		List<WebElement> optionList = getOptions();
+		for(WebElement option : optionList){
+			if(option.getText().equals(company)){
+				option.click();
+				break;
+			}
+				
+		}
+	}
+	
+	public String getCurrentSelection(){
+		Select itemList = new Select(this.driver.findElement(dropdownList));
+		return itemList.getFirstSelectedOption().getText();
+	}
+	
+	public boolean isWarningPresent(){
+		return this.isElementPresent(errorMessage)&&this.isElementVisible(warningSign1);
+	}
+	
+	public boolean isDescription1Present(){
+		return isElementPresent(formDescription1);
+	}
+	
+	public String getDescription1(){
+		return this.driver.findElement(formDescription1).getText();
+	}
+	
+	public void enterPhoneNum(String num){
+		
+	}
+	
+	
+	
+	
+	
+
+
+
+}

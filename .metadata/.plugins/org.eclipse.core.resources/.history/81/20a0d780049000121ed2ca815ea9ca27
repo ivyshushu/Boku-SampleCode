@@ -1,0 +1,40 @@
+package com.example.test;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.example.page.*;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class TestHover {
+	
+	
+	
+
+
+	@Test
+	public void test() {
+		System.setProperty("webdriver.firefox.bin", "/Applications/Firefox.app/Contents/MacOS/firefox-bin"); 
+		WebDriver driver = new FirefoxDriver();
+		DemoPage demo = new DemoPage(driver);
+	
+		
+		
+		driver.findElement(By.id("input_2")).click();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		assertEquals(true, demo.isSubmitErrorMessageDisplayed());
+
+     
+	}
+
+}

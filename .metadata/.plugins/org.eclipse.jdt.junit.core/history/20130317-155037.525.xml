@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun Rerun Rerun TestHover (Failed Tests first)" project="Boku_Sample" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.test.TestHover" time="2.377">
+    <testcase name="test" classname="com.example.test.TestHover" time="2.377"/>
+  </testsuite>
+</testrun>

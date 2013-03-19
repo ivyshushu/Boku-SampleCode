@@ -1,0 +1,39 @@
+package com.example.test;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.example.page.*;
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class TestHover {
+	
+	TestSetup setup = new TestSetup();
+	
+
+
+	@Test
+	public void test() {
+		DemoPage demo = new DemoPage(setup.driver);
+		List<WebElement> list = demo.getOptions();
+		for(WebElement e : list){
+			System.out.println(e.getText());
+		}
+		demo.selectItem(" AT&T ");
+		assertEquals(" AT&T ", demo.getCurrentSelection());
+
+        try{
+			demo.getDriver().findElement(By.cssSelector(".form-description"));
+		} catch(NoSuchElementException ne){
+			System.out.println("no such elm");
+		}
+	}
+
+}

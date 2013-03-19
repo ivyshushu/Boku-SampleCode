@@ -1,0 +1,80 @@
+package com.example.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Page {
+		protected WebDriver driver;
+		protected WebDriverWait wait;
+
+		public Page(WebDriver d){
+			this.driver = d;
+			this.wait = new WebDriverWait(this.driver, 10);
+		}
+
+
+		public WebDriver getDriver() {
+			return driver;
+		}
+
+		public WebDriverWait getWait() {
+			return wait;
+		}
+
+		public boolean isCurrentPage(String expectedTitle) {
+			if(this.driver.getTitle().isEmpty()) {
+				this.wait.until(new ExpectedCondition<String>() {
+					@Override
+					public String apply (WebDriver d) {
+						return d.getTitle();
+					}
+				});
+			}
+
+			if(expectedTitle.equals(this.driver.getTitle()))
+				return true;
+			else
+				return false;
+		}
+
+        //html elements
+		public boolean isElementPresent(By by) {
+			try {
+				this.driver.findElement(by);
+				return true;
+			} catch(NoSuchElementException e) {
+				return false;
+			} catch(StaleElementReferenceException e) {
+				return false;
+			}
+		}
+        
+		public boolean isElementVisible(By by) {
+			try {
+				this.driver.findElement(by).isDisplayed();
+				return true;
+			} catch(NoSuchElementException e) {
+				return false;
+			} catch(ElementNotVisibleException e) {
+				return false;
+			} catch(StaleElementReferenceException e) {
+				return false;
+			}
+		}
+
+		public ExpectedCondition<Boolean> presenceOfElementLocated(final By by) {
+			return new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver d) {
+					d.findElement(by);
+					return true;
+				}
+			};
+		}
+
+}

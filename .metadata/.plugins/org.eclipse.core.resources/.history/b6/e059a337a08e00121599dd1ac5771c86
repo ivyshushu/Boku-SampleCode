@@ -1,0 +1,28 @@
+package com.example.test;
+import com.example.page.*;
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class TestHover {
+	
+	TestSetup setup = new TestSetup();
+	
+
+
+	@Test
+	public void test() {
+		DemoPage demo = new DemoPage(setup.driver);
+		demo.mouseHover(By.id("input_3"));
+		WebElement elm = this.setup.driver.findElement(By.id("input_5"));
+    	Actions builder = new Actions(setup.driver);
+    	Action hover = builder.click(elm).sendKeys("123456").build();
+    	hover.perform();
+	}
+
+}

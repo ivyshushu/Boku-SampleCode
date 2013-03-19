@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Page {
 		protected WebDriver driver;
-		private WebDriverWait wait;
+		protected WebDriverWait wait;
 
 		public Page(WebDriver d){
 			this.driver = d;
@@ -54,7 +54,7 @@ public class Page {
 				return false;
 			}
 		}
-        //images
+        
 		public boolean isElementVisible(By by) {
 			try {
 				this.driver.findElement(by).isDisplayed();
@@ -68,11 +68,11 @@ public class Page {
 			}
 		}
 
-		public ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) {
+		public ExpectedCondition<WebElement> presenceOfElementLocated(final By by) {
 			return new ExpectedCondition<WebElement>() {
 				public WebElement apply(WebDriver d) {
-					WebElement element = d.findElement(by);
-					return element.isDisplayed() ? element : null;
+					WebElement elm = d.findElement(by);
+					return elm;
 				}
 			};
 		}

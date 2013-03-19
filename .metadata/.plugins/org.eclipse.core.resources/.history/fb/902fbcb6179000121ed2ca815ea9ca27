@@ -1,0 +1,39 @@
+package com.example.test;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.example.page.*;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class TestHover {
+	
+	TestSetup setup = new TestSetup();
+	
+
+
+	@Test
+	public void test() {
+		
+		DemoPage demo = new DemoPage(setup.driver);
+		
+		demo.enterPhoneNum("6666677+");
+		demo.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		assertEquals(true, demo.isErrorMessageDisplayed());
+
+
+
+     
+	}
+
+}

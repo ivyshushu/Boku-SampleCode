@@ -1,0 +1,33 @@
+package com.example.test;
+import com.example.page.*;
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class TestHover {
+	
+	TestSetup setup = new TestSetup();
+	
+
+
+	@Test
+	public void test() {
+		DemoPage demo = new DemoPage(setup.driver);
+		//demo.clickDropdownMenu();
+		demo.mouseHover(By.id("id_3"));
+		
+        assertEquals(true, demo.isDescription1Present());	
+        try{
+			demo.getDriver().findElement(By.cssSelector(".form-description"));
+		} catch(NoSuchElementException ne){
+			System.out.println("no such elm");
+		}
+	}
+
+}

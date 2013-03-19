@@ -1,0 +1,40 @@
+package com.example.test;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.example.page.*;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class TestHover {
+	
+	TestSetup setup = new TestSetup();
+	
+
+
+	@Test
+	public void test() {
+		DemoPage demo = new DemoPage(setup.driver);
+	
+		
+		
+		//setup.driver.findElement(By.id("input_2")).click();
+		setup.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		assertEquals(true, demo.isSubmitErrorMessageDisplayed());
+
+        try{
+			demo.getDriver().findElement(By.cssSelector(".form-description"));
+		} catch(NoSuchElementException ne){
+			System.out.println("no such elm");
+		}
+	}
+
+}
